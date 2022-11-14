@@ -25,7 +25,7 @@ def normalize(path_to_source_data, path_to_res):
             image = cv2.imread(path_to_source_data + filename)
             height, width, channels = image.shape
             resultimage = np.zeros((height, width))
-            image_norm = cv2.normalize(image, resultimage, alpha=0,beta=200, norm_type=cv2.NORM_MINMAX)
+            image_norm = cv2.normalize(image, resultimage, alpha=0,beta=200, norm_type=cv2.NORM_INF)
             save_result(path_to_res, filename, image_norm)
 
 
@@ -38,3 +38,16 @@ def save_result(path_to_res, filename, image_norm):
 
 if __name__ == "__main__":
     main()
+
+
+# norm_type:
+
+# NORM_INF
+# NORM_L1
+# NORM_L2
+# NORM_L2SQR
+# NORM_HAMMING
+# NORM_HAMMING2
+# NORM_TYPE_MASK
+# NORM_RELATIVE
+# NORM_MINMAX
